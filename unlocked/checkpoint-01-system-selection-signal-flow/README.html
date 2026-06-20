@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Readme</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, sans-serif; max-width: 920px; margin: 0 auto; padding: 32px 18px; line-height: 1.6; color: #172033; }
+    nav { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #ddd; }
+    nav a { margin-right: 14px; }
+    code { background: #f4f4f4; padding: 2px 4px; border-radius: 4px; }
+    pre { background: #f4f4f4; padding: 14px; overflow-x: auto; border-radius: 8px; }
+    table { border-collapse: collapse; width: 100%; }
+    td, th { border: 1px solid #ddd; padding: 8px; }
+    h1, h2, h3 { line-height: 1.25; }
+  </style>
+</head>
+<body>
+<nav><a href="/engineering-systems-foundation/">Home</a><a href="/engineering-systems-foundation/ROADMAP.html">Roadmap</a><a href="/engineering-systems-foundation/COURSE_STATUS.html">Status</a><a href="/engineering-systems-foundation/unlocked/README.html">Unlocked Checkpoints</a></nav>
+<h1>Checkpoint 01 — System Selection and Signal Flow</h1>
+<h2>Goal</h2>
+<p>Choose your own real-world-inspired system and explain how data flows through it.</p>
+<h2>Reading</h2>
+<p>Every engineered system can be understood as connected layers. A system may be a machine, a biomedical monitor, an environment monitor, a water tank, a motor, a battery, a room, a device, or any measurable process.</p>
+<p>A useful breakdown is:</p>
+<pre><code>
+Input → Sensor/measurement → Signal/data → Processing → Storage → Display/control → Decision → Failure modes
+</code></pre>
+<p>You do not need to choose a complicated system. Choose something measurable and explainable.</p>
+<h2>Your task</h2>
+<p>Choose one system that produces measurable data. Do not copy the examples directly unless you can justify your own version.</p>
+<p>Your system must eventually support at least three signals. For this checkpoint, identify possible signals only; you do not need to code yet.</p>
+<p>Examples of signal categories:</p>
+<ul>
+<li>temperature</li>
+<li>pressure</li>
+<li>voltage</li>
+<li>current</li>
+<li>level</li>
+<li>speed</li>
+<li>vibration</li>
+<li>humidity</li>
+<li>heart rate</li>
+<li>oxygen percentage</li>
+<li>device status</li>
+</ul>
+<h2>Required output</h2>
+<p>Prepare a short document with:</p>
+<p>1. System name.</p>
+<p>2. Why you selected it.</p>
+<p>3. At least three measurable signals.</p>
+<p>4. A flow diagram from real-world signal to cloud dashboard.</p>
+<p>5. Three possible failure modes.</p>
+<p>6. How a user would notice each failure.</p>
+<p>7. How an engineer may start debugging each failure.</p>
+<p>8. Search trail.</p>
+<h2>Search keywords</h2>
+<p>Use searches like:</p>
+<pre><code>
+what is a sensor signal
+engineering system block diagram
+how to identify failure modes in engineering system
+input processing output engineering system
+</code></pre>
+<h2>Mentor questions</h2>
+<ul>
+<li>What is the real-world input in your system?</li>
+<li>What are the signals?</li>
+<li>What is measured versus what is calculated?</li>
+<li>What can fail?</li>
+<li>How would this later connect to hardware?</li>
+</ul>
+<h2>Completion criteria</h2>
+<p>You can explain your system without reading copied text, and your diagram shows a clear data path.</p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How_To_Search_And_Debug</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, sans-serif; max-width: 920px; margin: 0 auto; padding: 32px 18px; line-height: 1.6; color: #172033; }
+    nav { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #ddd; }
+    nav a { margin-right: 14px; }
+    code { background: #f4f4f4; padding: 2px 4px; border-radius: 4px; }
+    pre { background: #f4f4f4; padding: 14px; overflow-x: auto; border-radius: 8px; }
+    table { border-collapse: collapse; width: 100%; }
+    td, th { border: 1px solid #ddd; padding: 8px; }
+    h1, h2, h3 { line-height: 1.25; }
+  </style>
+</head>
+<body>
+<nav><a href="/engineering-systems-foundation/">Home</a><a href="/engineering-systems-foundation/ROADMAP.html">Roadmap</a><a href="/engineering-systems-foundation/COURSE_STATUS.html">Status</a><a href="/engineering-systems-foundation/unlocked/README.html">Unlocked Checkpoints</a></nav>
+<h1>How to Search and Debug</h1>
+<p>Engineering is not knowing everything. Engineering is learning how to find, test, and verify.</p>
+<h2>Search pattern</h2>
+<p>Use this pattern:</p>
+<pre><code>
+&lt;tool/language&gt; + &lt;exact error message&gt; + &lt;what you were trying to do&gt;
+</code></pre>
+<p>Examples:</p>
+<pre><code>
+python address already in use port 8000
+fastapi post json body example
+git rejected non fast forward
+localhost not accessible from phone same wifi
+sqlite database file not found python
+</code></pre>
+<h2>Debugging report format</h2>
+<p>For every real problem, write:</p>
+<pre><code>
+Problem:
+Evidence:
+What I searched:
+Reference I used:
+What I tried:
+Root cause:
+Fix:
+How to prevent next time:
+</code></pre>
+<h2>Important habit</h2>
+<p>Do not randomly change many things at once. Change one thing, test, then document the result.</p>
+</body>
+</html>
