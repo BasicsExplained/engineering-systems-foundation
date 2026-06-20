@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 import html
 import json
+import os
 import re
 import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / 'release-config.json').read_text())
-UNLOCKED_UNTIL = int(CONFIG.get('unlocked_until', 1))
+UNLOCKED_UNTIL = int(os.environ.get('UNLOCKED_UNTIL') or CONFIG.get('unlocked_until', 1))
 SITE_SOURCE = ROOT / 'site-source'
 CHECKPOINTS = ROOT / 'checkpoints'
 OUT = ROOT / 'public-site'
