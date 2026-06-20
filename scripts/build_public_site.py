@@ -19,6 +19,7 @@ def markdown_to_html(text: str) -> str:
     out = []
     in_code = False
     in_ul = False
+    in_ol = False
     in_table = False
 
     def close_ul():
@@ -26,6 +27,16 @@ def markdown_to_html(text: str) -> str:
         if in_ul:
             out.append('</ul>')
             in_ul = False
+
+    def close_ol():
+        nonlocal in_ol
+        if in_ol:
+            out.append('</ol>')
+            in_ol = False
+
+    def close_lists():
+        close_ul()
+        close_ol()
 
     def close_table():
         nonlocal in_table
@@ -44,7 +55,7 @@ def markdown_to_html(text: str) -> str:
         raw = line.rstrip('\n')
         stripped = raw.strip()
         if stripped.startswith('```'):
-            close_ul(); close_table()
+            close_lists(); close_table()
             if not in_code:
                 out.append('<pre><code>')
                 in_code = True
@@ -56,10 +67,10 @@ def markdown_to_html(text: str) -> str:
             out.append(html.escape(raw))
             continue
         if not stripped:
-            close_ul(); close_table()
+            close_lists(); close_table()
             continue
         if stripped.startswith('|') and stripped.endswith('|'):
-            close_ul()
+            close_lists()
             cells = [c.strip() for c in stripped.strip('|').split('|')]
             if all(set(c) <= set('-: ') for c in cells):
                 continue
@@ -69,20 +80,28 @@ def markdown_to_html(text: str) -> str:
             out.append('<tr>' + ''.join(f'<td>{inline(c)}</td>' for c in cells) + '</tr>')
             continue
         close_table()
+        ordered = re.match(r'^\d+\.\s+(.*)$', raw)
         if raw.startswith('# '):
-            close_ul(); out.append(f'<h1>{inline(raw[2:].strip())}</h1>')
+            close_lists(); out.append(f'<h1>{inline(raw[2:].strip())}</h1>')
         elif raw.startswith('## '):
-            close_ul(); out.append(f'<h2>{inline(raw[3:].strip())}</h2>')
+            close_lists(); out.append(f'<h2>{inline(raw[3:].strip())}</h2>')
         elif raw.startswith('### '):
-            close_ul(); out.append(f'<h3>{inline(raw[4:].strip())}</h3>')
+            close_lists(); out.append(f'<h3>{inline(raw[4:].strip())}</h3>')
         elif raw.startswith('- '):
+            close_ol()
             if not in_ul:
                 out.append('<ul>')
                 in_ul = True
             out.append(f'<li>{inline(raw[2:].strip())}</li>')
+        elif ordered:
+            close_ul()
+            if not in_ol:
+                out.append('<ol>')
+                in_ol = True
+            out.append(f'<li>{inline(ordered.group(1).strip())}</li>')
         else:
-            close_ul(); out.append(f'<p>{inline(stripped)}</p>')
-    close_ul(); close_table()
+            close_lists(); out.append(f'<p>{inline(stripped)}</p>')
+    close_lists(); close_table()
     if in_code:
         out.append('</code></pre>')
     return '\n'.join(out)
@@ -96,19 +115,40 @@ def page(title: str, body: str) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{html.escape(title)}</title>
   <style>
-    body {{ font-family: system-ui, -apple-system, Segoe UI, sans-serif; max-width: 920px; margin: 0 auto; padding: 32px 18px; line-height: 1.6; color: #172033; }}
-    nav {{ margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #ddd; }}
-    nav a {{ margin-right: 14px; }}
-    code {{ background: #f4f4f4; padding: 2px 4px; border-radius: 4px; }}
-    pre {{ background: #f4f4f4; padding: 14px; overflow-x: auto; border-radius: 8px; }}
-    table {{ border-collapse: collapse; width: 100%; }}
-    td, th {{ border: 1px solid #ddd; padding: 8px; }}
-    h1, h2, h3 {{ line-height: 1.25; }}
+    :root {{ --ink:#172033; --muted:#5f6b7a; --line:#dfe5ee; --soft:#f6f8fb; --brand:#1f4fd8; --brand-soft:#eaf0ff; }}
+    * {{ box-sizing: border-box; }}
+    body {{ font-family: system-ui, -apple-system, Segoe UI, sans-serif; max-width: 980px; margin: 0 auto; padding: 24px 18px 56px; line-height: 1.7; color: var(--ink); background: #ffffff; }}
+    nav {{ display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 28px; padding: 12px; border: 1px solid var(--line); border-radius: 16px; background: var(--soft); position: sticky; top: 8px; z-index: 5; }}
+    nav a {{ display: inline-block; text-decoration: none; color: var(--brand); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; font-weight: 650; }}
+    nav a:hover {{ background: var(--brand-soft); }}
+    main {{ display: block; }}
+    h1 {{ font-size: clamp(2.1rem, 7vw, 4rem); letter-spacing: -0.045em; margin: 22px 0 8px; line-height: 1.05; }}
+    h2 {{ font-size: clamp(1.35rem, 4vw, 2rem); margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); letter-spacing: -0.025em; }}
+    h3 {{ margin-top: 26px; }}
+    p {{ color: #263244; }}
+    a {{ color: var(--brand); }}
+    ul, ol {{ background: var(--soft); border: 1px solid var(--line); border-radius: 16px; padding: 16px 22px 16px 34px; }}
+    li {{ margin: 8px 0; }}
+    code {{ background: #eef2f7; padding: 2px 5px; border-radius: 6px; }}
+    pre {{ background: #111827; color: #f8fafc; padding: 16px; overflow-x: auto; white-space: pre-wrap; overflow-wrap: anywhere; border-radius: 16px; border: 1px solid #0f172a; }}
+    pre code {{ background: transparent; color: inherit; padding: 0; }}
+    table {{ border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }}
+    td, th {{ border: 1px solid var(--line); padding: 10px; }}
+    tr:first-child td {{ font-weight: 700; background: var(--soft); }}
+    h1 + p {{ font-size: 1.18rem; color: var(--muted); }}
+    @media (max-width: 640px) {{
+      body {{ padding: 16px 14px 44px; }}
+      nav {{ position: static; gap: 8px; padding: 10px; }}
+      nav a {{ flex: 1 1 calc(50% - 8px); text-align: center; padding: 9px 8px; font-size: 0.95rem; }}
+      ul, ol {{ padding-left: 28px; }}
+    }}
   </style>
 </head>
 <body>
-<nav><a href="/engineering-systems-foundation/">Home</a><a href="/engineering-systems-foundation/ROADMAP.html">Roadmap</a><a href="/engineering-systems-foundation/COURSE_STATUS.html">Status</a><a href="/engineering-systems-foundation/unlocked/README.html">Unlocked Checkpoints</a></nav>
+<nav><a href="/engineering-systems-foundation/">Home</a><a href="/engineering-systems-foundation/unlocked/README.html">Start / Unlocked</a><a href="/engineering-systems-foundation/COURSE_STATUS.html">Status</a><a href="/engineering-systems-foundation/ROADMAP.html">Roadmap</a></nav>
+<main>
 {body}
+</main>
 </body>
 </html>'''
 
@@ -159,11 +199,13 @@ for number, name in all_checkpoints:
 status_lines.append('')
 (OUT / 'COURSE_STATUS.md').write_text('\n'.join(status_lines), encoding='utf-8')
 
-nav = ['# Unlocked Checkpoints', '']
+nav = ['# Start Here: Unlocked Checkpoints', '', 'Only the checkpoints released by the instructor are listed here.', '']
 for number, name in all_checkpoints:
     if number <= UNLOCKED_UNTIL:
-        nav.append(f'- [Checkpoint {number:02d}: {name}](./{name}/README.md)')
+        clean = name.replace('-', ' ').title()
+        nav.append(f'- [Checkpoint {number:02d}: {clean}](./{name}/README.md)')
 nav.append('')
+nav.append('After finishing the latest unlocked checkpoint, submit your evidence for mentor review before moving forward.')
 (unlocked_dir / 'README.md').write_text('\n'.join(nav), encoding='utf-8')
 
 convert_all_md(OUT)
