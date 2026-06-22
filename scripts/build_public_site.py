@@ -107,6 +107,50 @@ def markdown_to_html(text: str) -> str:
     return '\n'.join(out)
 
 
+def checkpoint_label(folder_name: str) -> str:
+    return folder_name.replace('-', ' ').title()
+
+
+def checkpoint_number_from_path(md: Path):
+    parts = md.parts
+    for part in parts:
+        match = re.match(r'checkpoint-(\d{2})-', part)
+        if match:
+            return int(match.group(1))
+    return None
+
+
+def checkpoint_navigation_html(md: Path, checkpoints: list[tuple[int, str]]) -> str:
+    number = checkpoint_number_from_path(md)
+    if number is None:
+        return ''
+
+    checkpoint_map = {n: name for n, name in checkpoints}
+    prev_number = number - 1
+    next_number = number + 1
+
+    items = ['<div class="checkpoint-nav" aria-label="Checkpoint navigation">']
+
+    if prev_number in checkpoint_map and prev_number <= UNLOCKED_UNTIL:
+        prev_name = checkpoint_map[prev_number]
+        items.append(f'<a class="checkpoint-link" href="../{prev_name}/README.html">← Previous: Checkpoint {prev_number:02d}</a>')
+    else:
+        items.append('<span class="checkpoint-link disabled">← Previous checkpoint</span>')
+
+    items.append('<a class="checkpoint-link" href="../README.html">Unlocked list</a>')
+
+    if next_number in checkpoint_map and next_number <= UNLOCKED_UNTIL:
+        next_name = checkpoint_map[next_number]
+        items.append(f'<a class="checkpoint-link" href="../{next_name}/README.html">Next: Checkpoint {next_number:02d} →</a>')
+    elif next_number in checkpoint_map:
+        items.append(f'<span class="checkpoint-link disabled" title="This checkpoint is locked until mentor approval">Next locked: Checkpoint {next_number:02d} →</span>')
+    else:
+        items.append('<span class="checkpoint-link disabled">No next checkpoint</span>')
+
+    items.append('</div>')
+    return '\n'.join(items)
+
+
 def page(title: str, body: str) -> str:
     return f'''<!doctype html>
 <html lang="en">
@@ -121,6 +165,10 @@ def page(title: str, body: str) -> str:
     nav {{ display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 0 0 24px; padding: 10px; border: 1px solid var(--line); border-radius: 16px; background: var(--soft); position: sticky; top: 8px; z-index: 5; }}
     nav a {{ display: inline-block; text-decoration: none; color: var(--brand); background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; font-weight: 700; }}
     nav a:hover {{ background: var(--brand-soft); }}
+    .checkpoint-nav {{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 20px 0 24px; padding: 12px; border: 1px solid var(--line); border-radius: 16px; background: var(--soft); }}
+    .checkpoint-link {{ display: block; text-align: center; text-decoration: none; font-weight: 800; border: 1px solid var(--line); border-radius: 12px; padding: 11px 12px; background: #fff; color: var(--brand); }}
+    .checkpoint-link:hover {{ background: var(--brand-soft); }}
+    .checkpoint-link.disabled {{ color: #8a94a6; background: #eef1f5; cursor: not-allowed; pointer-events: none; }}
     h1 {{ font-size: clamp(2rem, 6vw, 3.4rem); letter-spacing: -0.04em; margin: 18px 0 8px; line-height: 1.08; }}
     h2 {{ font-size: clamp(1.25rem, 3.4vw, 1.8rem); margin: 24px 0 10px; padding: 14px 16px; border-radius: 16px; border: 1px solid var(--line); background: var(--soft); letter-spacing: -0.02em; }}
     h2:nth-of-type(1) {{ background: var(--task); }}
@@ -141,6 +189,7 @@ def page(title: str, body: str) -> str:
       body {{ padding: 14px 12px 44px; }}
       nav {{ position: static; gap: 8px; padding: 9px; }}
       nav a {{ flex: 1 1 calc(50% - 8px); text-align: center; padding: 9px 8px; font-size: 0.92rem; }}
+      .checkpoint-nav {{ grid-template-columns: 1fr; }}
       ul, ol {{ padding-left: 28px; }}
       h2 {{ padding: 12px 14px; }}
     }}
@@ -155,10 +204,13 @@ def page(title: str, body: str) -> str:
 </html>'''
 
 
-def convert_all_md(root: Path):
+def convert_all_md(root: Path, checkpoints: list[tuple[int, str]]):
     for md in list(root.rglob('*.md')):
         rel_title = md.stem.replace('-', ' ').title()
         body = markdown_to_html(md.read_text(encoding='utf-8'))
+        checkpoint_nav = checkpoint_navigation_html(md, checkpoints)
+        if checkpoint_nav:
+            body = checkpoint_nav + '\n' + body + '\n' + checkpoint_nav
         html_path = md.with_suffix('.html')
         html_path.write_text(page(rel_title, body), encoding='utf-8')
         if md.name == 'index.md':
@@ -219,7 +271,7 @@ nav = [
 ]
 for number, name in all_checkpoints:
     if number <= UNLOCKED_UNTIL:
-        clean = name.replace('-', ' ').title()
+        clean = checkpoint_label(name)
         nav.append(f'- [Checkpoint {number:02d}: {clean}](./{name}/README.md)')
 nav.append('')
 nav.append('## Stop rule')
@@ -227,7 +279,7 @@ nav.append('')
 nav.append('If a checkpoint is not listed here, it is not part of your current work.')
 (unlocked_dir / 'README.md').write_text('\n'.join(nav), encoding='utf-8')
 
-convert_all_md(OUT)
+convert_all_md(OUT, all_checkpoints)
 
 print(f'Built public site: {OUT}')
 print(f'Unlocked until checkpoint {UNLOCKED_UNTIL:02d}')
