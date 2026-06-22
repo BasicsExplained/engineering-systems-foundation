@@ -2,56 +2,72 @@
 
 ## Goal
 
-Choose your own real-world-inspired system and explain how data flows through it.
+Choose one simple real-world-inspired system and explain how data moves through it.
 
-## Reading
+You are not coding in this checkpoint. You are only selecting and explaining your system.
 
-Every engineered system can be understood as connected layers. A system may be a machine, a biomedical monitor, an environment monitor, a water tank, a motor, a battery, a room, a device, or any measurable process.
+## Instruction
 
-A useful breakdown is:
+Do these tasks in order:
+
+1. Choose one system that produces measurable data.
+2. Give the system a short name.
+3. Write why you selected it.
+4. Identify at least three measurable signals.
+5. Draw a simple flow diagram from real-world signal to cloud dashboard.
+6. Identify three possible failures.
+7. Explain how a user would notice each failure.
+8. Explain how an engineer may start debugging each failure.
+9. Record your search trail.
+
+## Example
+
+Example only. Do not copy this as your final answer.
+
+System name:
 
 ```text
-Input → Sensor/measurement → Signal/data → Processing → Storage → Display/control → Decision → Failure modes
+Room Comfort Monitor
 ```
 
-You do not need to choose a complicated system. Choose something measurable and explainable.
+Possible signals:
 
-## Your task
+```text
+temperature
+humidity
+room occupancy status
+```
 
-Choose one system that produces measurable data. Do not copy the examples directly unless you can justify your own version.
+Simple flow:
 
-Your system must eventually support at least three signals. For this checkpoint, identify possible signals only; you do not need to code yet.
+```text
+room air → sensor reading → data value → local program → API → database → dashboard → user decision
+```
 
-Examples of signal categories:
+Possible failure:
 
-- temperature
-- pressure
-- voltage
-- current
-- level
-- speed
-- vibration
-- humidity
-- heart rate
-- oxygen percentage
-- device status
+```text
+Temperature value is stuck at 0.
+User notices the dashboard is unrealistic.
+Engineer checks sensor reading, simulator output, API request, database value, and dashboard display.
+```
 
-## Required output
+## Submit
 
-Prepare a short document with:
+Send one short document with these headings:
 
-1. System name.
-2. Why you selected it.
-3. At least three measurable signals.
-4. A flow diagram from real-world signal to cloud dashboard.
-5. Three possible failure modes.
-6. How a user would notice each failure.
-7. How an engineer may start debugging each failure.
-8. Search trail.
+1. System name
+2. Why I selected this system
+3. Three measurable signals
+4. Signal-to-cloud flow diagram
+5. Three possible failures
+6. How the user notices each failure
+7. How an engineer starts debugging each failure
+8. Search trail
 
-## Search keywords
+## Search trail format
 
-Use searches like:
+Write the actual searches you used, for example:
 
 ```text
 what is a sensor signal
@@ -60,14 +76,22 @@ how to identify failure modes in engineering system
 input processing output engineering system
 ```
 
-## Mentor questions
+## Done when
+
+This checkpoint is complete when:
+
+- your system is simple and measurable
+- your diagram shows a clear data path
+- you have at least three signals
+- you can explain failures without reading copied text
+- your search trail is included
+
+## Mentor review
+
+The mentor may ask:
 
 - What is the real-world input in your system?
-- What are the signals?
-- What is measured versus what is calculated?
+- Which values are measured?
+- Which values are calculated?
 - What can fail?
 - How would this later connect to hardware?
-
-## Completion criteria
-
-You can explain your system without reading copied text, and your diagram shows a clear data path.
