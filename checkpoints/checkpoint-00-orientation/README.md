@@ -1,37 +1,54 @@
 # Checkpoint 00 — Orientation
 
-## Purpose
+## Goal
 
-Understand the course process, rules, expected evidence, and the meaning of a Signal-to-Cloud system.
+Understand how this course works before starting technical work.
 
-## Reading
+## Instruction
 
-This course is a self-guided engineering lab. The mentor gives direction and reviews checkpoints, but does not provide ready-made solutions.
+Do these tasks in order:
 
-A Signal-to-Cloud system means:
+1. Read the homepage once.
+2. Read Course Rules.
+3. Read No-AI Policy.
+4. Read How to Search and Debug.
+5. Create a project journal file on your own computer.
+6. Write a short answer: What do you think an engineered system is?
+
+Do not start coding in this checkpoint.
+
+## Example
+
+Example of an engineered system:
 
 ```text
-Real-world idea → measurable signal → data → local program → network/API → storage → dashboard → cloud → future hardware
+water tank → water level sensor → level data → program checks level → dashboard shows status → engineer checks logs if level looks wrong
 ```
 
-You are not required to use real hardware in this course. You will simulate the signal first, then explain how it could later connect to hardware.
+This is only an example. You do not need to choose a water tank.
 
-## Task
+## Submit
 
-1. Read the course rules.
-2. Read the No-AI policy.
-3. Read the search/debugging guide.
-4. Create a project journal file on your own machine.
-5. Write your first reflection: what do you think an engineered system is?
+Send these items to the mentor:
 
-## Submission
+1. Screenshot or copy of your project journal file.
+2. One paragraph explaining the course goal in your own words.
+3. One paragraph explaining what Signal-to-Cloud means.
+4. One question you still have.
 
-- Your project journal file.
-- One paragraph explaining the course goal in your own words.
-- One question you want to understand better.
+## Done when
 
-## Mentor questions
+This checkpoint is complete when you can explain:
+
+- why the course uses checkpoints
+- why evidence is required
+- why AI-generated answers are not allowed
+- what Signal-to-Cloud means
+
+## Mentor review
+
+The mentor may ask:
 
 - What is the difference between finishing a task and understanding a system?
-- Why is evidence required at every checkpoint?
-- What does Signal-to-Cloud mean?
+- Why should every checkpoint include evidence?
+- What does Signal-to-Cloud mean in simple words?
