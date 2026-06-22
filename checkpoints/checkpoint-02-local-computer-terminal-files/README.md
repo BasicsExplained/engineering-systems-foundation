@@ -2,36 +2,65 @@
 
 ## Goal
 
-Understand that software starts on your own computer: folders, files, terminal commands, programs, and data.
+Understand where software starts: your own computer, folders, files, terminal commands, programs, and data.
 
-## Reading
+## Instruction
 
-A program is a set of instructions. A file stores data or code. A terminal lets you give direct commands to the operating system.
+Do these tasks in order:
 
-Before cloud, backend, database, or dashboards, you must understand where your program runs and where its data is stored.
+1. Create a local project folder for your Signal-to-Cloud system.
+2. Create a project journal file inside that folder.
+3. Create a small script or program that prints sample readings for your chosen system.
+4. Save at least 10 sample readings into a CSV file.
+5. Open the CSV file and inspect the data.
+6. Write the difference between a code file and a data file.
+7. Record one mistake or error you faced.
+8. Record how you searched for that error.
 
-## Your task
+## Example
 
-Create a local project folder for your Signal-to-Cloud system.
+Example only. Do not copy this directly.
 
-Inside it:
+```text
+project-folder/
+  journal.md
+  simulator.py
+  readings.csv
+```
 
-1. Create a project journal.
-2. Create a small script/program that prints sample readings for your chosen system.
-3. Save at least 10 sample readings to a CSV file.
-4. Open the CSV and inspect the data.
-5. Explain the difference between code file and data file.
+Example reading:
 
-## Required evidence
+```text
+timestamp,temperature,humidity,status
+2026-06-22T10:00:00,28.5,61,normal
+```
 
-- Screenshot of project folder.
-- Screenshot of terminal running your program.
-- Screenshot or copy of generated CSV.
-- One error faced and how you searched for it.
+## Submit
 
-## Mentor questions
+Send these items to the mentor:
+
+1. Screenshot of your project folder.
+2. Screenshot of terminal running your program.
+3. Screenshot or copy of the generated CSV file.
+4. Short explanation of code file versus data file.
+5. One error you faced and your search trail.
+
+## Done when
+
+This checkpoint is complete when:
+
+- your project folder is organized
+- your program runs locally
+- your CSV file contains at least 10 readings
+- you can explain where code is stored and where data is stored
+- you have evidence of one debugging/search attempt
+
+## Mentor review
+
+The mentor may ask:
 
 - Where is your program stored?
 - Where is your data stored?
 - What happens if you delete the CSV file?
 - What is a file path?
+- Why should project files be organized?
