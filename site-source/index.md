@@ -1,95 +1,62 @@
 # Engineering Systems Foundation
 
-## Signal to Cloud: a 30-day guided engineering lab
+## What should I do now?
 
-This course is for students who are new to engineering systems, software, networking, and cloud deployment.
+Follow only this order:
 
-The goal is not to finish a website quickly. The goal is to understand how a real system moves from a physical idea into software, data, APIs, storage, dashboards, deployment, logs, debugging, and future hardware.
+1. Open [Start / Unlocked Checkpoints](unlocked/README.md).
+2. Open the first checkpoint listed there.
+3. Do only the section named **Instruction**.
+4. Use **Example** only to understand the idea. Do not copy it.
+5. Finish the section named **Submit**.
+6. Stop and wait for mentor review.
 
-## Start here today
+## What is this course?
 
-Do these in order:
+This is a 30-day guided engineering lab.
 
-- Read [Course Rules](COURSE_RULES.md)
-- Read [No-AI Policy](NO_AI_POLICY.md)
-- Read [How to Search and Debug](HOW_TO_SEARCH_AND_DEBUG.md)
-- Open [Unlocked Checkpoints](unlocked/README.md)
-- Complete the first unlocked checkpoint
-- Submit evidence for mentor review
-
-## Current unlocked work
-
-The course is checkpoint-gated. Only the checkpoints released by the instructor are part of the active website flow.
-
-- [View unlocked checkpoints](unlocked/README.md)
-- [Check release status](COURSE_STATUS.md)
-- [View full roadmap](ROADMAP.md)
-
-## How each checkpoint works
-
-Each checkpoint is a 3-day sprint:
+You will learn how a real-world idea becomes a software system:
 
 ```text
-1. Understand the idea
-2. Search and read official references
-3. Build a small working piece
-4. Break something and debug it
-5. Capture screenshots, commands, errors, and logs
-6. Explain what happened in your own words
-7. Submit for mentor review
-8. Move to the next checkpoint only after approval
+real-world signal → data → program → API → database → dashboard → cloud → debugging → future hardware
 ```
 
-## What you are building
+## What is not allowed?
 
-You will choose a real-world-inspired system that produces measurable data.
+Do not use AI to write your code, answers, explanations, debugging report, or checkpoint submission.
 
-Your final project will slowly become a small Signal-to-Cloud prototype:
+Allowed: official documentation, Google search, Stack Overflow, GitHub issues, YouTube explanations, and mentor review.
 
-```text
-Real-world idea
-→ signals or data
-→ local simulator
-→ validation
-→ API
-→ database
-→ dashboard or control panel
-→ cloud deployment
-→ logs and debugging
-→ future hardware path
-```
+## How to read every checkpoint page
 
-## What good work looks like
+Every checkpoint now uses the same structure:
 
-A good checkpoint submission includes:
+| Section | Meaning |
+|---|---|
+| Goal | What this checkpoint is trying to teach |
+| Instruction | The exact work you must do |
+| Example | Only a sample to understand the idea; do not copy |
+| Submit | What you must send for review |
+| Done when | How you know the checkpoint is complete |
+| Mentor review | Questions the mentor may ask |
 
-- What you tried
-- What worked
-- What failed
-- The exact error message
-- The search terms you used
-- The reference links you read
-- Screenshots or terminal output
-- Your own explanation of the root cause
-- The final working result
+## Main rule for students
 
-## Important rule
+Do not try to read the whole site like a book.
 
-Do not use AI to generate checkpoint answers, code, debugging reports, or explanations.
+Use it like a task board:
 
-You may use official documentation, search engines, Stack Overflow, GitHub issues, and mentor review. You must understand and explain your own work.
-
-## Mentor review
-
-Every 3 days, the mentor checks your evidence and decides whether the next checkpoint should be unlocked.
-
-If your submission is weak, you repeat the checkpoint with better evidence instead of moving forward.
+1. Go to the unlocked checkpoint.
+2. Complete the instruction.
+3. Submit evidence.
+4. Wait for approval.
+5. Move to the next checkpoint only after it is unlocked.
 
 ## Quick links
 
+- [Start / Unlocked Checkpoints](unlocked/README.md)
+- [Course Status](COURSE_STATUS.md)
 - [Course Rules](COURSE_RULES.md)
 - [No-AI Policy](NO_AI_POLICY.md)
 - [How to Search and Debug](HOW_TO_SEARCH_AND_DEBUG.md)
 - [Roadmap](ROADMAP.md)
-- [Course Status](COURSE_STATUS.md)
-- [Unlocked Checkpoints](unlocked/README.md)
