@@ -1,29 +1,41 @@
 # Course Rules
 
-## Purpose
+This is a reference page. It is not a checkpoint.
 
-This course builds engineering instincts. The goal is not to create a beautiful website. The goal is to understand systems.
+## Instruction
 
-## Main rule
+Read this once before starting Checkpoint 00.
 
-Every checkpoint must include evidence of learning:
+## Main rules
+
+1. Work checkpoint by checkpoint.
+2. Do not jump ahead unless the next checkpoint is unlocked.
+3. Keep your own project journal.
+4. Save evidence for every checkpoint.
+5. Explain your own work during mentor review.
+6. Do not submit copied text.
+7. Do not use AI to generate answers, code, debugging reports, or explanations.
+
+## Evidence required
+
+Every checkpoint submission must include:
 
 - what you tried
+- what worked
 - what failed
 - what you searched
-- what you understood
-- screenshots or logs
+- screenshots, logs, or terminal output
 - your own explanation
 - one real-world engineering connection
 
-## Work style
+## Mentor role
 
-You are expected to work independently for each 3-day sprint. The mentor reviews checkpoints and asks questions. The mentor does not write the solution for you.
+The mentor reviews your checkpoint and asks questions.
 
-## Submission rule
+The mentor does not write the solution for you.
 
-A checkpoint is complete only when you can explain it live without reading copied text.
+## Student repo rule
 
-## Repo rule
+Use your own project repository for your work.
 
-Students should use their own project repository for their work. This course website is for reading and task instructions only.
+This course website is only for reading instructions and checkpoint tasks.
