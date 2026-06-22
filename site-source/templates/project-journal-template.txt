@@ -1,0 +1,40 @@
+Project Journal
+===============
+
+Student name:
+Project name:
+GitHub repository link:
+Google Drive folder link:
+
+How to use this journal
+-----------------------
+Write short notes every day. This is not a polished report. It is a record of what you tried, what failed, what you searched, and what you understood.
+
+Daily log format
+----------------
+
+Date:
+Checkpoint:
+Today's goal:
+
+What I tried:
+
+What worked:
+
+What failed:
+
+Exact error message or problem:
+
+Search terms used:
+
+References opened:
+
+What I understood in my own words:
+
+Files changed today:
+
+Screenshots/logs saved at:
+
+Next step:
+
+Mentor questions:
