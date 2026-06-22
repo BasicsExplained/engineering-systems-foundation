@@ -1,14 +1,24 @@
 # Daily Log Template
 
+Use this inside your Project Journal.
+
+## Daily entry
+
 Date:
 
-Today’s goal:
+Checkpoint:
 
-What I tried:
+Today's goal:
 
-What worked:
+## What I tried
 
-What failed:
+## What worked
+
+## What did not work
+
+## Problem note
+
+## Search trail
 
 Search query used:
 
@@ -16,4 +26,12 @@ Reference used:
 
 What I understood:
 
-Next step:
+What I applied:
+
+## Evidence saved
+
+Screenshot/log/diagram/file location:
+
+## Next step
+
+## Question for mentor
