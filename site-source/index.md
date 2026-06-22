@@ -4,12 +4,15 @@
 
 Follow only this order:
 
-1. Open [Start / Unlocked Checkpoints](unlocked/README.md).
-2. Open the first checkpoint listed there.
-3. Do only the section named **Instruction**.
-4. Use **Example** only to understand the idea. Do not copy it.
-5. Finish the section named **Submit**.
-6. Stop and wait for mentor review.
+1. Open [Progress Sharing](PROGRESS_SHARING.md) and create your Google Drive folder.
+2. Download or copy the templates from the Progress Sharing page.
+3. Open [Start / Unlocked Checkpoints](unlocked/README.md).
+4. Open the first checkpoint listed there.
+5. Do only the section named **Instruction**.
+6. Use **Example** only to understand the idea. Do not copy it.
+7. Finish the section named **Submit**.
+8. Put your evidence in Google Drive.
+9. Stop and wait for mentor review.
 
 ## What is this course?
 
@@ -21,6 +24,20 @@ You will learn how a real-world idea becomes a software system:
 real-world signal → data → program → API → database → dashboard → cloud → debugging → future hardware
 ```
 
+## Where should progress be shared?
+
+Use this system:
+
+| Place | Purpose |
+|---|---|
+| Course website | Read instructions only |
+| Google Drive | Journal, submissions, screenshots, logs, diagrams |
+| GitHub | Code, commits, project files |
+
+Read the full setup here:
+
+- [Progress Sharing and Submission Setup](PROGRESS_SHARING.md)
+
 ## What is not allowed?
 
 Do not use AI to write your code, answers, explanations, debugging report, or checkpoint submission.
@@ -29,7 +46,7 @@ Allowed: official documentation, Google search, Stack Overflow, GitHub issues, Y
 
 ## How to read every checkpoint page
 
-Every checkpoint now uses the same structure:
+Every checkpoint uses the same structure:
 
 | Section | Meaning |
 |---|---|
@@ -46,14 +63,17 @@ Do not try to read the whole site like a book.
 
 Use it like a task board:
 
-1. Go to the unlocked checkpoint.
-2. Complete the instruction.
-3. Submit evidence.
-4. Wait for approval.
-5. Move to the next checkpoint only after it is unlocked.
+1. Set up Google Drive progress folder.
+2. Go to the unlocked checkpoint.
+3. Complete the instruction.
+4. Submit evidence in Google Drive.
+5. Notify the mentor with the Drive link.
+6. Wait for approval.
+7. Move to the next checkpoint only after it is unlocked.
 
 ## Quick links
 
+- [Progress Sharing](PROGRESS_SHARING.md)
 - [Start / Unlocked Checkpoints](unlocked/README.md)
 - [Course Status](COURSE_STATUS.md)
 - [Course Rules](COURSE_RULES.md)
