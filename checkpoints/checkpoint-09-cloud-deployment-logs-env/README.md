@@ -2,26 +2,66 @@
 
 ## Goal
 
-Understand cloud as infrastructure and learn how to inspect deployed systems.
+Understand cloud as infrastructure and learn how to inspect a deployed system.
 
-## Reading
+## Instruction
 
-Cloud means your code is running on infrastructure managed somewhere else. Deployment makes your application reachable through a public URL. Logs show what the system is doing and help debug failures.
+Do these tasks in order:
 
-## Your task
+1. Deploy at least one part of your system to a cloud or hosting platform.
+2. Open the deployed system through a public URL.
+3. Find the deployment logs.
+4. Add or inspect one environment/config variable.
+5. Intentionally create one configuration problem.
+6. Fix the problem.
+7. Explain the difference between localhost and the deployed service.
+8. Record what could cost money in the platform you used.
 
-Deploy at least one part of your system. Then inspect logs and intentionally fix one configuration problem.
+## Example
 
-## Required evidence
+Example only. Your platform may be different.
 
-- Public URL.
-- Deployment screenshot.
-- Logs screenshot.
-- One environment/config variable example.
-- One deployment problem and root cause.
-- Comparison: local laptop vs cloud service.
+```text
+Local:
+http://localhost:3000
 
-## Mentor questions
+Cloud:
+https://your-project.example-host.com
+```
+
+Example configuration idea:
+
+```text
+PORT=3000
+API_BASE_URL=https://example.com
+APP_ENV=production
+```
+
+## Submit
+
+Send these items to the mentor:
+
+1. Public URL.
+2. Deployment screenshot.
+3. Logs screenshot.
+4. One environment/config variable example.
+5. One deployment problem and root cause.
+6. Comparison: local laptop versus cloud service.
+7. Search trail for one deployment issue.
+
+## Done when
+
+This checkpoint is complete when:
+
+- at least one part of the system is deployed
+- you can open it through a public URL
+- you know where to find logs
+- you can explain one config variable
+- you can explain how cloud differs from localhost
+
+## Mentor review
+
+The mentor may ask:
 
 - Where is your code running now?
 - What is a public URL?
