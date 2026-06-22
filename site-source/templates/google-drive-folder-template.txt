@@ -1,0 +1,41 @@
+Google Drive folder structure
+=============================
+
+Main folder name:
+StudentName - Engineering Systems Foundation
+
+Create these folders inside it:
+
+00 - Progress Tracker
+01 - Project Journal
+02 - Checkpoint Submissions
+03 - Screenshots and Logs
+04 - Diagrams
+05 - Final Demo
+
+Inside 02 - Checkpoint Submissions, create:
+
+CP00 - Orientation
+CP01 - System Selection
+CP02 - Local Computer Files
+CP03 - Localhost Networking
+CP04 - Git Version Control
+CP05 - Signal Simulator Validation
+CP06 - API HTTP JSON Backend
+CP07 - Database Persistence
+CP08 - Dashboard HMI
+CP09 - Cloud Deployment Logs Env
+CP10 - Final Demo Hardware Extension
+
+Inside each checkpoint folder, create:
+
+CPXX - Submission
+screenshots
+logs
+diagrams
+links.txt
+
+Sharing:
+Share the main folder with the mentor.
+Recommended permission: Commenter.
+Use Editor only if the mentor needs to edit documents directly.
